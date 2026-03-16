@@ -1,18 +1,12 @@
 import React, { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import {
-  cardVariants,
   sectionVariants,
   sectionViewport,
-  softHover,
   staggerContainer,
+  cardVariants,
 } from "../lib/motion";
-import {
-  ArrowDown,
-  ArrowDown01,
-  ArrowDownNarrowWide,
-  ChevronDown,
-} from "lucide-react";
+import { Plus, Minus, MessageCircle } from "lucide-react";
 
 const faqs = [
   {
@@ -92,23 +86,17 @@ const faqSchema = {
   mainEntity: faqs.map((f) => ({
     "@type": "Question",
     name: f.question,
-    acceptedAnswer: {
-      "@type": "Answer",
-      text: f.answer,
-    },
+    acceptedAnswer: { "@type": "Answer", text: f.answer },
   })),
 };
 
 function FAQ() {
   const [openIndex, setOpenIndex] = useState(null);
-
-  const toggle = (i) => {
-    setOpenIndex(openIndex === i ? null : i);
-  };
+  const toggle = (i) => setOpenIndex(openIndex === i ? null : i);
 
   return (
     <motion.section
-      className="bg-[#173229] py-[60px] md:py-[88px]"
+      className="bg-[#0d1f1a] py-[60px] md:py-[88px]"
       id="faq"
       aria-label="Frequently asked questions about education marketing"
       variants={sectionVariants}
@@ -120,74 +108,113 @@ function FAQ() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
+
       <div className="mx-auto max-w-[1200px] px-[18px] md:px-7">
-        <motion.div
-          className="mx-auto mb-[52px] max-w-[680px] text-center"
-          variants={sectionVariants}
-        >
-          <h2 className="mb-3.5 font-['Dela_Gothic_One'] text-[1.65rem] leading-[1.15] text-white md:text-[clamp(1.75rem,3.5vw,2.4rem)]">
-            Frequently Asked Questions About Education Marketing
-          </h2>
-          <p className="text-base leading-7 text-white/65">
-            Everything colleges, schools, and coaching institutes want to know
-            about admissions marketing, student lead generation, and enrollment
-            growth.
-          </p>
-        </motion.div>
-        <motion.div
-          className="mx-auto max-w-[760px]"
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="show"
-          viewport={sectionViewport}
-        >
-          {faqs.map((faq, i) => (
-            <motion.div
-              className="transform-gpu will-change-transform mb-2.5 overflow-hidden rounded-[12px] border border-white/10 bg-[#253e35]"
-              key={i}
-              variants={cardVariants}
-              whileHover={softHover}
-              layout
+        <div className="flex flex-col gap-12 lg:flex-row lg:gap-20">
+          {/* ── Left column: title + CTA ── */}
+          <motion.div
+            className="flex flex-col justify-start lg:w-[400px] lg:shrink-0"
+            variants={sectionVariants}
+          >
+            <div>
+              <h2 className="mb-6 font-['Dela_Gothic_One'] text-2xl leading-[1.2] text-white md:text-4xl">
+                Frequently Asked Questions About Education Marketing
+              </h2>
+              {/* Divider */}
+              <div className="mb-5 h-px w-16 bg-white/20" />
+              <p className="text-[0.9rem] leading-relaxed text-white/55">
+                Everything colleges, schools, and coaching institutes want to
+                know about admissions marketing, student lead generation, and
+                enrollment growth.
+              </p>
+            </div>
+
+            <motion.a
+              href="#hero"
+              className="mt-8 flex w-fit items-center gap-2 rounded-full bg-[#253e35] border border-white/10 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[#2c4a3e] hover:border-[#d0e999]/30 hover:text-[#d0e999]"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
             >
-              <button
-                className="flex w-full items-center justify-between gap-4 bg-transparent px-[22px] py-[18px] text-left text-[0.95rem] font-semibold text-white transition hover:text-[#e2fea5]"
-                onClick={() => toggle(i)}
-                aria-expanded={openIndex === i}
-                aria-controls={`faq-answer-${i}`}
-                id={`faq-q-${i}`}
+              Get in touch
+              <MessageCircle className="h-4 w-4 opacity-70" strokeWidth={2} />
+            </motion.a>
+          </motion.div>
+
+          {/* ── Right column: accordion ── */}
+          <motion.div
+            className="flex-1"
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="show"
+            viewport={sectionViewport}
+          >
+            {faqs.map((faq, i) => (
+              <motion.div
+                key={faq.id}
+                className="border-b border-white/10 last:border-b-0"
+                variants={cardVariants}
               >
-                <span>{faq.question}</span>
-                <motion.span
-                  className="shrink-0 text-base text-[#e2fea5]"
-                  aria-hidden="true"
-                  animate={{ rotate: openIndex === i ? 180 : 0 }}
-                  transition={{ duration: 0.2 }}
+                <button
+                  className="flex w-full items-start justify-between gap-6 py-5 text-left transition-colors duration-200"
+                  onClick={() => toggle(i)}
+                  aria-expanded={openIndex === i}
+                  aria-controls={`faq-answer-${i}`}
+                  id={`faq-q-${i}`}
                 >
-                  <ChevronDown />
-                </motion.span>
-              </button>
-              <AnimatePresence initial={false}>
-                {openIndex === i && (
-                  <motion.div
-                    key={`faq-answer-${i}`}
-                    id={`faq-answer-${i}`}
-                    className="overflow-hidden"
-                    role="region"
-                    aria-labelledby={`faq-q-${i}`}
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.25, ease: "easeOut" }}
+                  <span
+                    className={`text-[0.93rem] font-semibold leading-snug transition-colors duration-200 ${
+                      openIndex === i ? "text-[#d0e999]" : "text-white"
+                    }`}
                   >
-                    <div className="px-[22px] pb-[18px] text-[0.88rem] leading-7 text-white/65">
-                      {faq.answer}
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.div>
-          ))}
-        </motion.div>
+                    {faq.question}
+                  </span>
+
+                  {/* +/− icon */}
+                  <motion.span
+                    className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full border"
+                    animate={{
+                      borderColor:
+                        openIndex === i
+                          ? "rgba(208,233,153,0.5)"
+                          : "rgba(255,255,255,0.2)",
+                      color:
+                        openIndex === i ? "#d0e999" : "rgba(255,255,255,0.5)",
+                    }}
+                    transition={{ duration: 0.2 }}
+                    aria-hidden="true"
+                  >
+                    {openIndex === i ? (
+                      <Minus className="h-3 w-3" strokeWidth={2.5} />
+                    ) : (
+                      <Plus className="h-3 w-3" strokeWidth={2.5} />
+                    )}
+                  </motion.span>
+                </button>
+
+                {/* Answer */}
+                <AnimatePresence initial={false}>
+                  {openIndex === i && (
+                    <motion.div
+                      key={`faq-answer-${i}`}
+                      id={`faq-answer-${i}`}
+                      role="region"
+                      aria-labelledby={`faq-q-${i}`}
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.25, ease: "easeOut" }}
+                      className="overflow-hidden"
+                    >
+                      <p className="pb-5 text-[0.875rem] leading-7 text-white/55">
+                        {faq.answer}
+                      </p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
       </div>
     </motion.section>
   );
