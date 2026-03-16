@@ -99,7 +99,7 @@ function Hero() {
             </motion.div>
 
             <motion.div
-              className="flex flex-wrap gap-x-5 gap-y-3 max-w-[480px]"
+              className="grid grid-cols-1 gap-4 md:grid-cols-2"
               aria-label="Trust signals"
               variants={staggerContainer}
             >

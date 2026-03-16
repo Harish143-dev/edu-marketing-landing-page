@@ -113,7 +113,7 @@ function PainPointCard({ item, index }) {
           transition={{ duration: 0.5, ease: "easeInOut" }}
           style={{ overflow: "hidden" }}
         >
-          <p className="font-['Bricolage_Grotesque'] text-sm font-light leading-relaxed text-[rgba(208,233,153,0.7)]">
+          <p className="font-['Bricolage_Grotesque'] text-sm font-light leading-relaxed text-white/70">
             {item.desc}
           </p>
         </motion.div>
