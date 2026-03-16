@@ -55,8 +55,7 @@ function WhyEyeLevel() {
             <div
               className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
               style={{
-                backgroundImage:
-                  "url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=900&q=85&auto=format&fit=crop')",
+                backgroundImage: "url('/whyEyelevel.jpeg')",
               }}
             />
             {/* Overlays */}

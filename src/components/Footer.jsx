@@ -41,9 +41,7 @@ function Footer() {
                 alt="EyeLevel Growth Studio Logo"
                 className="h-[30px] w-auto"
               />
-              <span className="font-['Dela_Gothic_One'] text-[1.1rem] text-white">
-                EyeLevel <span className="text-[#e2fea5]">Growth Studio</span>
-              </span>
+         
             </div>
             <p className="text-[0.87rem] leading-[1.75] text-white/45">
               Chennai's only digital marketing agency built exclusively for

@@ -27,7 +27,7 @@ function Hero() {
       {/* Background image */}
       <div
         className="pointer-events-none absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/hero-bg.jpg')" }}
+        style={{ backgroundImage: "url('/hero_bg2.png')" }}
         aria-hidden="true"
       />
 
@@ -77,10 +77,9 @@ function Hero() {
               className="mb-[28px] max-w-[520px] text-[0.95rem] leading-7 text-white/78 md:mb-[34px] md:text-[1.05rem]"
               variants={cardVariants}
             >
-              Chennai&apos;s specialist admissions marketing agency for schools,
-              colleges, coaching institutes &amp; preschools. We run
-              high-converting admission campaigns that fill seats — every
-              season.
+              Chennai's specialist admissions marketing agency for schools,
+              colleges, coaching institutes & preschools. We run high-converting
+              admission campaigns that fill seats — every season.
             </motion.p>
 
             <motion.div
