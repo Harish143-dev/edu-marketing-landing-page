@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { fadeIn } from "../lib/motion";
+import eyelevelLogo from "../assets/logo.png";
 
 const navLinks = [
   { href: "#services", label: "Services" },
@@ -49,9 +50,9 @@ function Navbar() {
             onClick={handleLinkClick}
           >
             <img
-              src="/logo.png"
+              src={eyelevelLogo}
               alt="EyeLevel Growth Studio Logo"
-              className="h-[28px] w-auto md:h-[36px]"
+              className="h-[32px] w-auto md:h-[42px]"
             />
           </motion.a>
           {/* ── Desktop nav ──

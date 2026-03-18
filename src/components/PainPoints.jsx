@@ -93,13 +93,13 @@ function PainPointCard({ item, index }) {
               animate={{ width: hovered ? "40px" : "0px" }}
               transition={{ duration: 0.4, ease: "easeOut" }}
             />
-            <h3
+            <h4
               className={`font-['Dela_Gothic_One'] text-[1.05rem] uppercase leading-none transition-colors duration-300 ${
                 hovered ? "text-[#d0e999]" : "text-white"
               }`}
             >
               {item.title}
-            </h3>
+            </h4>
           </div>
         </div>
 

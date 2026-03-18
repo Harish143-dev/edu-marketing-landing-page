@@ -118,14 +118,22 @@ function FAQ() {
           >
             <div>
               <h2 className="mb-6 font-['Dela_Gothic_One'] text-2xl leading-[1.2] text-white md:text-4xl">
-                Frequently Asked Questions About Education Marketing
+                FAQ About Education Marketing
               </h2>
               {/* Divider */}
               <div className="mb-5 h-px w-16 bg-white/20" />
               <p className="text-[0.9rem] leading-relaxed text-white/55">
-                Everything colleges, schools, and coaching institutes want to
-                know about admissions marketing, student lead generation, and
-                enrollment growth.
+                At Eyelevel, we don’t just run campaigns—we build growth systems
+                for educational brands. From schools to colleges and
+                universities, we help institutions consistently increase
+                admissions, qualified leads, and brand visibility through
+                strategic, performance-driven marketing. Our approach goes
+                beyond traditional digital marketing. We craft custom growth
+                strategies tailored to your institution’s goals—combining data,
+                creativity, and deep market understanding to deliver measurable
+                outcomes. Whether it's scaling admissions, improving enquiry
+                quality, or strengthening your market presence, Eyelevel acts as
+                your long-term growth partner, not just a service provider.
               </p>
             </div>
 
@@ -161,13 +169,13 @@ function FAQ() {
                   aria-controls={`faq-answer-${i}`}
                   id={`faq-q-${i}`}
                 >
-                  <span
+                  <h3
                     className={`text-[0.93rem] font-semibold leading-snug transition-colors duration-200 ${
                       openIndex === i ? "text-[#d0e999]" : "text-white"
                     }`}
                   >
                     {faq.question}
-                  </span>
+                  </h3>
 
                   {/* +/− icon */}
                   <motion.span

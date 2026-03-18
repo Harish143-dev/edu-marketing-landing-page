@@ -23,7 +23,7 @@ function InquiryForm({ id, animateOnView = true, hoverLift = true }) {
     setShowToast(false);
     try {
       const response = await fetch(
-        "https://automate.eyelevelstudio.in/webhook-test/edu-form",
+        "https://automate.eyelevelstudio.in/webhook/edu-form",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -39,10 +39,8 @@ function InquiryForm({ id, animateOnView = true, hoverLift = true }) {
       // Reset form after submission
       setForm({
         name: "",
-        institution: "",
-        type: "",
+        email: "",
         phone: "",
-        city: "",
       });
       // Auto-dismiss success toast after 3 seconds
       setTimeout(() => setShowToast(false), 3000);
@@ -78,9 +76,9 @@ function InquiryForm({ id, animateOnView = true, hoverLift = true }) {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
           >
-            <h3 className="mb-1 text-center font-['Dela_Gothic_One'] text-[1.15rem] font-normal text-white">
+            <h5 className="mb-1 text-center font-['Dela_Gothic_One'] text-[1.15rem] font-normal text-white">
               Book a Consultation
-            </h3>
+            </h5>
             <p className="mb-[16px] text-center text-[0.82rem] text-white/50">
               Find out why your campaigns aren't filling seats.
             </p>
@@ -165,7 +163,7 @@ function InquiryForm({ id, animateOnView = true, hoverLift = true }) {
                     Submitting...
                   </>
                 ) : (
-                  <>Book a Consultation</>
+                  <h5>Book a Consultation</h5>
                 )}
               </motion.button>
             </form>

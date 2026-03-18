@@ -7,63 +7,47 @@ import {
   staggerContainer,
   cardVariants,
 } from "../lib/motion";
-import serviceImg1 from "../assets/service_img_1.jpeg";
-import serviceImg2 from "../assets/service_img_2.jpeg";
-import serviceImg3 from "../assets/service_img_3.jpeg";
-import serviceImg4 from "../assets/service_img_4.jpeg";
-import serviceImg5 from "../assets/service_img_5.jpeg";
-import serviceImg6 from "../assets/service_img_6.jpeg";
-import serviceImg7 from "../assets/service_img_7.jpeg";
-import serviceImg8 from "../assets/service_img_8.jpeg";
 
 const services = [
   {
     num: "01",
     title: "Admission Campaign Management",
     desc: "Google Search ads for admissions and Meta Ads targeting parents and students - from NEET counseling to MBA batch launches.",
-    image: serviceImg1,
   },
   {
     num: "02",
     title: "Student Lead Generation Funnels",
     desc: "Conversion-optimised admission landing pages that turn ad clicks into qualified student leads.",
-    image: serviceImg2,
   },
   {
     num: "03",
     title: "WhatsApp Inquiry Nurturing",
     desc: "Automated WhatsApp marketing for admissions - instant replies, follow-ups, and campus tour invites.",
-    image: serviceImg3,
   },
   {
     num: "04",
     title: "Parent-Focused Digital Advertising",
     desc: "Instagram and Facebook ads for educational institutions targeting parents by location, age, and interest.",
-    image: serviceImg4,
   },
   {
     num: "05",
     title: "Enrollment Tracking & CRM Integration",
     desc: "Real-time dashboards showing cost per enrollment, lead quality, and admission conversion rate.",
-    image: serviceImg5,
   },
   {
     num: "06",
     title: "Campus Video Production",
     desc: "Campus tour videos, student testimonial videos, and faculty introduction videos that build trust fast.",
-    image: serviceImg6,
   },
   {
     num: "07",
     title: "Local SEO & Google Business",
     desc: "Rank on Google Maps and local search when parents look for colleges or coaching institutes near them.",
-    image: serviceImg7,
   },
   {
     num: "08",
     title: "Brochure & Marketing Collateral",
     desc: "Admission brochures, scholarship announcement campaigns, and open house event materials - print and digital",
-    image: serviceImg8,
   },
 ];
 
@@ -130,8 +114,6 @@ function ServiceRow({ item, onHover, onLeave, containerRef }) {
 }
 
 function Services() {
-  const [activeImage, setActiveImage] = useState(null);
-  const [imageTop, setImageTop] = useState(0);
   const sectionRef = useRef(null);
 
   // IMAGE_HEIGHT / 2 so it's vertically centered on the row
@@ -149,37 +131,6 @@ function Services() {
       viewport={sectionViewport}
     >
       {/* Floating image — right edge, vertically aligned to hovered row */}
-      <AnimatePresence>
-        {activeImage && (
-          <motion.div
-            className="pointer-events-none absolute right-30 z-20 hidden lg:block"
-            style={{ top: imageTop - IMAGE_HEIGHT / 2 }}
-            initial={{ opacity: 0, x: 16, scale: 0.95 }}
-            animate={{ opacity: 1, x: 0, scale: 1 }}
-            exit={{ opacity: 0, x: 16, scale: 0.95 }}
-            transition={{ duration: 0.25, ease: "easeOut" }}
-          >
-            <div
-              className="relative bottom-5 overflow-hidden rounded-2xl border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.6)]"
-              style={{ width: 240, height: IMAGE_HEIGHT }}
-            >
-              <AnimatePresence mode="wait">
-                <motion.img
-                  key={activeImage}
-                  src={activeImage}
-                  alt=""
-                  className="absolute h-full w-full object-cover"
-                  initial={{ opacity: 0, scale: 1.06 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.22, ease: "easeOut" }}
-                />
-              </AnimatePresence>
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0d1f1a]/60 via-transparent to-transparent" />
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
 
       <div className="mx-auto max-w-[1200px] px-[18px] md:px-7">
         {/* Header */}

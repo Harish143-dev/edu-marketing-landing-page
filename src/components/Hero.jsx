@@ -3,6 +3,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import InquiryForm from "./InquiryForm";
 import { cardVariants, sectionVariants, staggerContainer } from "../lib/motion";
 import { CheckCircle } from "lucide-react";
+import hero from "../assets/hero_bg.webp";
 
 function Hero() {
   const shouldReduceMotion = useReducedMotion();
@@ -27,7 +28,7 @@ function Hero() {
       {/* Background image */}
       <div
         className="pointer-events-none absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/hero_bg2.png')" }}
+        style={{ backgroundImage: `url('${hero}')` }}
         aria-hidden="true"
       />
 
@@ -57,29 +58,28 @@ function Hero() {
             initial="hidden"
             animate="show"
           >
-            <motion.span
+            <motion.h1
               className="mb-[22px] inline-block rounded-full border border-[rgba(226,254,165,0.25)] bg-[rgba(226,254,165,0.12)] px-[14px] py-[6px] text-[0.78rem] font-semibold uppercase tracking-[0.4px] text-[#e2fea5]"
               variants={cardVariants}
             >
-              Education Specialist Agency{" "}
-              <span className="hidden md:inline">- Chennai</span>
-            </motion.span>
+              Education Digital Marketing Agency
+            </motion.h1>
 
-            <motion.h1 variants={sectionVariants}>
+            <motion.h2 variants={sectionVariants}>
               <span className="mb-[22px] block font-['Dela_Gothic_One'] text-[1.9rem] leading-[1.1] text-white sm:text-[2.1rem] md:text-[clamp(2.2rem,5vw,3.6rem)]">
                 Stop Losing Admissions.
                 <br />
                 <span className="text-[#e2fea5]">Start Filling Seats.</span>
               </span>
-            </motion.h1>
+            </motion.h2>
 
             <motion.p
               className="mb-[28px] max-w-[520px] text-[0.95rem] leading-7 text-white/78 md:mb-[34px] md:text-[1.05rem]"
               variants={cardVariants}
             >
-              Chennai's specialist admissions marketing agency for schools,
-              colleges, coaching institutes & preschools. We run high-converting
-              admission campaigns that fill seats — every season.
+              Chennai's best admissions marketing agency for schools, colleges,
+              coaching institutes & preschools. We run high-converting admission
+              campaigns that fill seats — every season.
             </motion.p>
 
             <motion.div

@@ -6,6 +6,7 @@ import {
   sectionViewport,
   staggerContainer,
 } from "../lib/motion";
+import eyelevelLogo from "../assets/logo.png";
 
 const links = [
   { label: "Services", href: "#services" },
@@ -37,11 +38,10 @@ function Footer() {
           <motion.div className="max-w-[320px]" variants={cardVariants}>
             <div className="mb-4 flex items-center gap-3">
               <img
-                src="/logo.png"
+                src={eyelevelLogo}
                 alt="EyeLevel Growth Studio Logo"
                 className="h-[30px] w-auto"
               />
-         
             </div>
             <p className="text-[0.87rem] leading-[1.75] text-white/45">
               Chennai's only digital marketing agency built exclusively for

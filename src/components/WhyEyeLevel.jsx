@@ -14,6 +14,7 @@ import {
   softHover,
   staggerContainer,
 } from "../lib/motion";
+import whyEyelevel from "../assets/whyEyelevel.webp";
 
 function WhyEyeLevel() {
   return (
@@ -33,7 +34,7 @@ function WhyEyeLevel() {
           variants={sectionVariants}
         >
           <h2 className="mb-3.5 font-['Dela_Gothic_One'] text-2xl leading-[1.15] text-white md:text-4xl">
-            Chennai's Specialist Education Marketing Agency
+            Best Digital Marketing Agency For Educational Institutes
           </h2>
           <p className="text-base leading-7 text-white/65"></p>
         </motion.div>
@@ -55,7 +56,7 @@ function WhyEyeLevel() {
             <div
               className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
               style={{
-                backgroundImage: "url('/whyEyelevel.jpeg')",
+                backgroundImage: `url('${whyEyelevel}')`,
               }}
             />
             {/* Overlays */}
